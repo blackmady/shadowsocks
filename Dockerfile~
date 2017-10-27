@@ -1,0 +1,14 @@
+# About shadowsocks of Docker
+# 
+# Version:1.0.0
+
+FROM ubuntu:14.04
+MAINTAINER None <cg3385@163.com>
+
+ENV REFRESHED_AT 20
+
+RUN apt-get -qq update && \
+    apt-get install -q -y python-pip python-m2crypto
+RUN pip install shadowsocks
+
+ENTRYPOINT ["/usr/local/bin/ssserver"]
